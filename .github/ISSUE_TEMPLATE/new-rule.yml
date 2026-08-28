@@ -1,0 +1,61 @@
+name: New rule proposal
+description: Propose a deterministic readiness check with evidence and an actionable fix.
+title: "rule: "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Proposed rule ID
+      placeholder: category.short-name
+    validations:
+      required: true
+
+  - type: textarea
+    id: gap
+    attributes:
+      label: Readiness gap
+      description: What real agent failure does this predict or prevent?
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Static evidence
+      description: Define bounded evidence available without executing code or using the network.
+    validations:
+      required: true
+
+  - type: textarea
+    id: semantics
+    attributes:
+      label: Pass, partial, and fail semantics
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Diverse examples
+      description: Provide public or synthetic examples from more than one repository pattern.
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Actionable recommendation
+      description: What should a maintainer do when this rule loses points?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety constraints
+      options:
+        - label: The proposed rule needs no network, subprocess, target-code execution, secrets, or path escape.
+          required: true
+

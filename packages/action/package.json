@@ -1,0 +1,26 @@
+{
+  "name": "@gutfish/agentready-action",
+  "version": "0.0.0",
+  "private": true,
+  "description": "GitHub Action adapter for AgentReady.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CYFRON-3/AgentReady.git",
+    "directory": "packages/action"
+  },
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "tsc -b --pretty false",
+    "clean": "tsc -b --clean",
+    "package": "tsup --config tsup.config.ts",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "@actions/core": "3.0.1",
+    "@gutfish/agentready-core": "workspace:^"
+  }
+}

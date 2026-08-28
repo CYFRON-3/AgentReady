@@ -1,0 +1,54 @@
+name: False result
+description: Report incorrect evidence, status, score impact, or recommendation.
+title: "false result: "
+labels:
+  - bug
+body:
+  - type: input
+    id: rule
+    attributes:
+      label: Rule ID
+      placeholder: verify.commands
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: AgentReady and rubric versions
+      placeholder: AgentReady v0.1.0, rubric v1
+    validations:
+      required: true
+
+  - type: textarea
+    id: safe-example
+    attributes:
+      label: Public or synthetic example
+      description: Link or paste the smallest non-sensitive file tree and excerpts needed to reproduce.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reported
+    attributes:
+      label: What AgentReady reported
+      description: Include status, bounded evidence, score impact, and recommendation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should be reported instead
+      description: Explain why, with evidence that generalizes beyond one repository if possible.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: This report contains no credentials, private source, or personal paths.
+          required: true
+

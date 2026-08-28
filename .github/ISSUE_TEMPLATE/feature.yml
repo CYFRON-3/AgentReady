@@ -1,0 +1,42 @@
+name: Feature request
+description: Describe a user problem or workflow AgentReady does not yet support.
+title: "feature: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Who is blocked, in what workflow, and how often?
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-workaround
+    attributes:
+      label: Current workaround
+      description: How do you solve or measure this today?
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the observable result, not only a preferred implementation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repeat-use
+    attributes:
+      label: Repeat-use signal
+      description: Would this make you rerun AgentReady, install the Action, or use it across repositories?
+
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Product boundaries
+      options:
+        - label: I understand v0.1 does not execute target code, require a server/account, or use LLM judging.
+          required: true
+

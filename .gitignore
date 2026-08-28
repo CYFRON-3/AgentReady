@@ -1,0 +1,32 @@
+# Dependencies and build products
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# The bundled JavaScript action is a release artifact and must be committed.
+!packages/action/dist/
+!packages/action/dist/**
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local Codex/Obsidian coordination
+.codex/
+.obsidian/
+AGENTS.local.md
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+.tmp/
+tmp/

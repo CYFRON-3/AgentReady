@@ -1,0 +1,73 @@
+name: Bug report
+description: Report a reproducible AgentReady defect that is not a security vulnerability.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Use the private process in SECURITY.md for vulnerabilities.
+        Never attach credentials, private repository content, or personal filesystem paths.
+
+  - type: input
+    id: version
+    attributes:
+      label: AgentReady version
+      description: Release, commit SHA, or local branch.
+      placeholder: v0.1.0 or 0123abcd
+    validations:
+      required: true
+
+  - type: dropdown
+    id: interface
+    attributes:
+      label: Interface
+      options:
+        - CLI
+        - GitHub Action
+        - Core library
+        - Documentation or schemas
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Prefer a public or synthetic repository and exact command or workflow.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include redacted output and exit status when relevant.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system and Node.js version.
+      placeholder: Windows 11, Node.js 24.x
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, private content, and personal paths, and this is not a security vulnerability.
+          required: true
+

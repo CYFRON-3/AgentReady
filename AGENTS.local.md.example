@@ -1,0 +1,14 @@
+# Local AgentReady handoff (example)
+
+Copy this file to `AGENTS.local.md` and keep it untracked. Record only local
+coordination facts needed to resume work, such as where private planning notes
+live and which checklist should be updated after a material change.
+
+Do not copy secrets into this file. Do not weaken any rule from `AGENTS.md`.
+
+## Local planning workspace
+
+- Private planning root: replace with a local path
+- Current handoff note: replace with a local path
+- End-of-task update command: replace with a local command, if any
+

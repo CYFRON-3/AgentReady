@@ -1,0 +1,32 @@
+name: AgentReady
+description: Assess whether a repository is prepared for safe, verifiable coding-agent work.
+author: Gutfish
+
+inputs:
+  path:
+    description: Repository-relative directory to scan.
+    required: false
+    default: .
+  fail-under:
+    description: Fail when the score is lower than this integer from 0 to 100.
+    required: false
+    default: "0"
+
+outputs:
+  score:
+    description: Integer readiness score from 0 to 100.
+  grade:
+    description: Human-readable readiness grade.
+  report-path:
+    description: Path to the generated JSON report.
+  delta:
+    description: Score change from the configured baseline, when available.
+
+runs:
+  using: node24
+  main: packages/action/dist/index.cjs
+
+branding:
+  icon: check-circle
+  color: green
+
