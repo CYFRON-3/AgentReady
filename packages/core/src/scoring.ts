@@ -2,6 +2,8 @@ import type { Finding, ReadinessGrade } from "./model.js";
 
 type ScoredFinding = Pick<Finding, "earnedPoints" | "maximumPoints">;
 
+export const RUBRIC_TOTAL_POINTS = 100;
+
 function assertValidFinding(finding: ScoredFinding): void {
   const { earnedPoints, maximumPoints } = finding;
   const valid =
@@ -17,10 +19,6 @@ function assertValidFinding(finding: ScoredFinding): void {
 }
 
 export function calculateScore(findings: readonly ScoredFinding[]): number {
-  if (findings.length === 0) {
-    return 0;
-  }
-
   let earned = 0;
   let maximum = 0;
 
@@ -30,7 +28,13 @@ export function calculateScore(findings: readonly ScoredFinding[]): number {
     maximum += finding.maximumPoints;
   }
 
-  return Math.round((earned / maximum) * 100);
+  if (maximum !== RUBRIC_TOTAL_POINTS) {
+    throw new RangeError(
+      `A complete rubric must contain exactly ${RUBRIC_TOTAL_POINTS} available points.`,
+    );
+  }
+
+  return Math.round((earned / RUBRIC_TOTAL_POINTS) * 100);
 }
 
 export function gradeForScore(score: number): ReadinessGrade {
