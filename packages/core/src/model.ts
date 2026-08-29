@@ -20,7 +20,7 @@ export interface Finding {
 
 export interface Diagnostic {
   readonly code: string;
-  readonly severity: "warning" | "error";
+  readonly severity: "warning" | "critical" | "error";
   readonly message: string;
   readonly path?: string;
 }

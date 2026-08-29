@@ -11,4 +11,5 @@ established.
 ### Added
 
 - Architecture-ready Gutfish/AgentReady monorepo scaffold.
-
+- Accepted rubric-v1 scoring, enforcement, release, support, badge, and
+  privacy/measurement policies.

@@ -5,14 +5,28 @@ describe("calculateScore", () => {
   it("normalizes earned points to a 100-point score", () => {
     expect(
       calculateScore([
-        { earnedPoints: 8, maximumPoints: 8 },
-        { earnedPoints: 6, maximumPoints: 12 },
+        { earnedPoints: 60, maximumPoints: 80 },
+        { earnedPoints: 10, maximumPoints: 20 },
       ]),
     ).toBe(70);
   });
 
-  it("returns zero when no findings exist", () => {
-    expect(calculateScore([])).toBe(0);
+  it("returns zero for a complete rubric with no earned points", () => {
+    expect(calculateScore([{ earnedPoints: 0, maximumPoints: 100 }])).toBe(0);
+  });
+
+  it("rounds once after all rule points are summed", () => {
+    expect(calculateScore([{ earnedPoints: 75.5, maximumPoints: 100 }])).toBe(76);
+  });
+
+  it("rejects an incomplete rubric instead of inflating its score", () => {
+    expect(() =>
+      calculateScore([
+        { earnedPoints: 8, maximumPoints: 8 },
+        { earnedPoints: 6, maximumPoints: 12 },
+      ]),
+    ).toThrow(/exactly 100/);
+    expect(() => calculateScore([])).toThrow(/exactly 100/);
   });
 
   it("rejects invalid point values", () => {

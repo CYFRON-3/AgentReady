@@ -45,6 +45,8 @@ Read the full [security policy](SECURITY.md) and
 [architecture](docs/architecture/README.md) before contributing to discovery or
 parsing code.
 
+AgentReady v0.1 has [zero telemetry by default](docs/privacy-and-metrics.md).
+
 ## Development setup
 
 Prerequisites:
@@ -91,9 +93,14 @@ agentready explain <rule-id>
 agentready init
 ```
 
+`fail-under` defaults to `0` (advisory); after a baseline run, the recommended
+enforcement threshold is `75`.
+
 The GitHub Action will emit a Job Summary, annotations, and outputs including
 `score`, `grade`, `report-path`, and `delta`. Badge publishing will remain an
-explicit opt-in mode with separate write permissions.
+explicit opt-in mode with separate write permissions. See the accepted
+[scoring contract](docs/scoring.md), [badge modes](docs/badges.md), and
+[release/support policy](docs/releases-and-support.md).
 
 ## Contributing
 
